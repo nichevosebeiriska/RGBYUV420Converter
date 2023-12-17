@@ -1,0 +1,10 @@
+yuv_path=yuv_samples/bowing_cif.yuv
+yuv_width=352
+yuv_height=288
+n_frames=100
+bmp_path=bmp_samples/bmp_991_436_randsize.bmp
+xpos=150
+ypos=50
+result_path=results/result.yuv
+
+./Converter $yuv_path $yuv_width $yuv_height $n_frames $bmp_path $xpos $ypos $result_path
