@@ -24,49 +24,7 @@ enum
   v3FbitsPerPix = 0x001C
 };
 
-//struct pixel_rgb888
-//{
-//    int8_t r,g,b;
-
-//    pixel_rgb888(char a,char d,char c)
-//    {
-//        r = (int8_t)a;
-//        g = (int8_t)d;
-//        b = (int8_t)c;
-//    }
-//    pixel_rgb888(int8_t a,int8_t d,int8_t c)
-//    {
-//        r = a; g = d; b = c;
-//    }
-//    pixel_rgb888()
-//    {
-//        r = g = b = 0;
-//    }
-//    void print()
-//    {
-//        std::cerr<<"{"<<(int)r<<" "<<(int)g<<" "<<(int)b<<" }";
-//    }
-//};
 #include<thread>
-
-//void rgb_to_yuv(uint8_t r,uint8_t g,uint8_t b,uint8_t&y ,uint8_t&u,uint8_t&v)
-//{
-//    y = 0.299 * (float)r + 0.587 * (float)g + 0.114 * (float)b+16;
-//    u = 0.492*(float)((int)b-(int)y)+128;
-//    v = 0.877*(float)((int)r-(int)y)+128;
-//}
-//void rgb_to_yuv(pixel_rgb888 p,uint8_t&y ,uint8_t&u,uint8_t&v)
-//{
-//    uint8_t r,g,b;
-//    r = p.b;
-//    g = p.g;
-//    b = p.r;
-
-//    y = 0.299 * (float)r + 0.587 * (float)g + 0.114 * (float)b+16;
-//    u = 0.492*(float)((int)b-(int)y)+128;
-//    v = 0.877*(float)((int)r-(int)y)+128;
-//}
-
 
 ifstream* openIfstream(const string path);
 ofstream* openOfstream(const string path);
