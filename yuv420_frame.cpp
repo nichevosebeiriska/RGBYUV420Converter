@@ -8,8 +8,7 @@
 #include<iterator>
 YUV420_Frame::YUV420_Frame(uint16_t w,uint16_t h,ifstream* input)
 {
-//    std::istream_iterator<char>it;
-    istream_iterator<uint8_t> tt(*input);
+
     if(input!=nullptr && w>0 && h>0)
     {
         width = w;

@@ -114,8 +114,6 @@ struct BITMAPINFO
 };
 class BMP_Image
 {
-
-
     std::vector<pixel_rgb888> pixel_data;
 
     BITMAPFILEHEADER header;
@@ -132,7 +130,6 @@ class BMP_Image
 public:
     BMP_Image(BMP_Image& bmp);
     BMP_Image(const string path_to_file);
-    //BMP_Image(int16_t w,int16_t h,vector<char> data);
     ~BMP_Image();
 
 
