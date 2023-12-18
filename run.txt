@@ -4,4 +4,4 @@ cmake CMakeLists.txt
 make
 mkdir results yuv_samples bmp_samples
 chmod +x ./launch.txt
-./launch.txt
+#./launch.txt
