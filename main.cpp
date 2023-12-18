@@ -180,13 +180,13 @@ int main(int argc,char** argv)
    }
    else
    {
-       n_frames = 1;
-       yuv_width = 352;
-       yuv_height = 288;
-       yuv_path = "../yuv_samples/akiyo_cif.yuv";
+       n_frames = 20;
+       yuv_width = 1920;
+       yuv_height = 1080;
+       yuv_path = "../yuv_samples/v1.yuv";
        bmp_path = "../bmp_samples/bmp_save.bmp";
-       xpos    = 50;
-       ypos    = -150;
+       xpos    = -250;
+       ypos    = -50;
        result_path  = "../results/result.yuv";
    }
 

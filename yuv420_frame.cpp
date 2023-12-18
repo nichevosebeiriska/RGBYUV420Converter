@@ -20,7 +20,7 @@ YUV420_Frame::YUV420_Frame(uint16_t w,uint16_t h,ifstream* input)
 
         input->read((char*)Luma.data(),width*height);
         input->read((char*)U.data(),width*height/4);
-        input->read((char*)V.data(),width*height/4-1);
+        input->read((char*)V.data(),width*height/4);
     }
 }
 YUV420_Frame::YUV420_Frame(BMP_Image& bmp)
@@ -156,10 +156,10 @@ void convertByThreadRGBYUV420(YUV420_Frame* frame,BMP_Image* img,int first_line,
 
                 rgb_to_yuv_avx(p1_ptr,p2_ptr,y_arr,&avx_u,&avx_v);
 
-                Y_ptr[i*width+j] = y_arr[0]+16;
-                Y_ptr[i*width+j+1] = y_arr[1]+16;
-                Y_ptr[i*width+j+width] = y_arr[2]+16;
-                Y_ptr[i*width+j+width+1] = y_arr[3]+16;
+                Y_ptr[i*width+j] = y_arr[0];
+                Y_ptr[i*width+j+1] = y_arr[1];
+                Y_ptr[i*width+j+width] = y_arr[2];
+                Y_ptr[i*width+j+width+1] = y_arr[3];
 
                 U_ptr[i*width/4+j/2] = avx_u;
                 V_ptr[i*width/4+j/2] = avx_v;

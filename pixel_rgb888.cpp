@@ -61,45 +61,15 @@ void rgb_to_yuv_avx(pixel_rgb888* pix_line1,pixel_rgb888* pix_line2,uint8_t* y,u
     p21 = _mm_loadu_si128((__m128i*)pix_line2);
     p22 = _mm_loadu_si128((__m128i*)(pix_line2+1));
 
-
-//    uint8_t* p11res  = new uint8_t[16];
-//    p11res = reinterpret_cast<uint8_t*>(&p11);
-//    _mm_storeu_si128((__m128i*)p11res,p11);
-
-//    std::cerr<<"p11 = \n";
-//    for(int i = 0;i<4;i++)
-//    {
-//        std::cerr<<(int)p11res[i]<<" ";
-//    }
-
-//    int m[4]{1,1,1,0};
-//    __m128i mask;
-
-//    mask = _mm_loadu_si128((__m128i*)m);
-//    __m128 fmask = _mm_cvtepi32_ps(mask);
-
     // float значения rgb компонент соответствующих пикселей
     __m128 p11f,p12f,p21f,p22f;
 
-
-    // усреднение
-    //rgb_sum = _mm_mul_ps(rgb_sum,_mm_set1_ps(0.25));
-
-    //std::cerr<<"mask = \n";
-    //print_4_int(reinterpret_cast<int*>(&mask));
-
-    //__m128i cvt = _mm_cvtepi8_epi32(p11);
-    //auto cvt = _mm_cvtepu8_epi32(p11);
-    //print_4_int(reinterpret_cast<int*>(&cvt));
 
     p11f = _mm_cvtepi32_ps(_mm_cvtepu8_epi32(p11));
     p12f = _mm_cvtepi32_ps(_mm_cvtepu8_epi32(p12));
     p21f = _mm_cvtepi32_ps(_mm_cvtepu8_epi32(p21));
     p22f = _mm_cvtepi32_ps(_mm_cvtepu8_epi32(p22));
 
-
-    //std::cerr<<"p11 to float\n";
-    //print_4_float(reinterpret_cast<float*>(&p11f));
     // среднее значение компонент rgb для 4 пикселей
     __m128 rgb_sum;
 
@@ -148,7 +118,7 @@ void rgb_to_yuv_avx(pixel_rgb888* pix_line1,pixel_rgb888* pix_line2,uint8_t* y,u
     // получаем сумму y11+y12
     float* y_sum_res = reinterpret_cast<float*>(&p11f);
     // (y11+y12) + (y21+y22)
-    y_sum_res[0]+= (reinterpret_cast<float*>(&p11f))[0];
+    y_sum_res[0]+= (reinterpret_cast<float*>(&p21f))[0];
 
     // сумма y11 y12 y21 y22
 
