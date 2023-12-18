@@ -215,8 +215,7 @@ YUV420_Frame* multithreadConvertRGBYUV420(const string path_to_bmp)
 
     BMP_Image* image = new BMP_Image(path_to_bmp);
     image->clamp();
-    image->save("/home/bebrou/Converter/test_bmp_save.bmp",image->getHeader(),image->getInfo());
-
+  
     // вертикально отражаем bmp
     image->turnHorizontaly();
 
